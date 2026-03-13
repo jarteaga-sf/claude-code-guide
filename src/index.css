@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: 'Lora', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
+
+  --color-bg: #FAFAF8;
+  --color-bg-white: #FFFFFF;
+  --color-text: #1A1A1A;
+  --color-text-prose: #37352F;
+  --color-text-secondary: #4A4A4A;
+  --color-text-muted: #8A8A8A;
+  --color-accent: #64748B;
+  --color-accent-hover: #475569;
+  --color-border: #E5E5E3;
+  --color-border-light: #F0F0EE;
+  --color-terminal-bg: #1E1E1E;
+  --color-terminal-text: #D4D4D4;
+  --color-terminal-green: #4EC9B0;
+  --color-terminal-blue: #569CD6;
+  --color-terminal-yellow: #DCDCAA;
+  --color-terminal-red: #F44747;
+  --color-terminal-dim: #6A6A6A;
+  --color-terminal-prompt: #6A9955;
+  --color-takeaway-bg: #F8F8F6;
+  --color-deepcut-bg: #F5F5F3;
+  --color-diff-add: #2EA04340;
+  --color-diff-remove: #F4474740;
+
+  --shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    font-weight: 450;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  h1, h2 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+}
