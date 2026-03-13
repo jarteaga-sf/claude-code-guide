@@ -14,7 +14,7 @@ A practical guide to vibe coding with Claude Code. No prior programming experien
 
 ## How to Access
 
-The guide is hosted at **[your-vercel-url]**. Just open the link -- nothing to install.
+The guide is hosted at **[https://jarteaga-sf.github.io/claude-code-guide/](https://jarteaga-sf.github.io/claude-code-guide/)**. Just open the link -- nothing to install.
 
 ## Want to Run It Locally?
 
@@ -29,4 +29,4 @@ Then open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ## Built With
 
-React, Tailwind CSS, and shadcn/ui. Hosted on Vercel.
+React, Tailwind CSS, and shadcn/ui. Hosted on GitHub Pages.
