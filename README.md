@@ -1,35 +1,32 @@
 # Coding with AI -- A Guide for Salesforce SEs
 
-An interactive, single-page guide that teaches Salesforce SEs how to use Claude Code for vibe coding.
+A practical guide to vibe coding with Claude Code. No prior programming experience required.
 
 ![Screenshot](public/screenshot.png)
 
-## What's Inside
+## What You'll Learn
 
-- **Foundations** -- What vibe coding is, how Claude Code works, where it runs, and how to set it up
-- **Use It Well** -- Thinking before building, staying safe, managing context, and writing good prompts
-- **Go Deeper** -- Customization, multi-agent workflows, patterns that work (and ones that don't), plus a cheat sheet
+- **What vibe coding actually is** -- and why it matters for SEs
+- **How to get started** -- installing Claude Code and setting up your first project
+- **How to think about prompts** -- the difference between good and great instructions
+- **How to stay safe** -- version control, cost management, and avoiding common mistakes
+- **What works and what doesn't** -- real patterns from the field
 
-## Tech Stack
+## How to Access
 
-- Vite + React
-- Tailwind CSS v4
-- shadcn/ui
-- Lucide React icons
+The guide is hosted at **[your-vercel-url]**. Just open the link -- nothing to install.
 
-## Getting Started
+## Want to Run It Locally?
+
+If you'd like to run the site on your own machine:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) to view it locally.
+Then open [http://localhost:5173](http://localhost:5173) in your browser.
 
-## Build
+## Built With
 
-```bash
-npm run build
-```
-
-Outputs to `dist/`. Deploy anywhere that serves static files -- Vercel, Netlify, GitHub Pages, etc.
+React, Tailwind CSS, and shadcn/ui. Hosted on Vercel.
