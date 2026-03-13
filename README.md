@@ -1,16 +1,35 @@
-# React + Vite
+# Coding with AI -- A Guide for Salesforce SEs
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive, single-page guide that teaches Salesforce SEs how to use Claude Code for vibe coding.
 
-Currently, two official plugins are available:
+![Screenshot](public/screenshot.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## What's Inside
 
-## React Compiler
+- **Foundations** -- What vibe coding is, how Claude Code works, where it runs, and how to set it up
+- **Use It Well** -- Thinking before building, staying safe, managing context, and writing good prompts
+- **Go Deeper** -- Customization, multi-agent workflows, patterns that work (and ones that don't), plus a cheat sheet
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- Vite + React
+- Tailwind CSS v4
+- shadcn/ui
+- Lucide React icons
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) to view it locally.
+
+## Build
+
+```bash
+npm run build
+```
+
+Outputs to `dist/`. Deploy anywhere that serves static files -- Vercel, Netlify, GitHub Pages, etc.
