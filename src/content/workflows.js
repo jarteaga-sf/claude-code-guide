@@ -1,120 +1,130 @@
-export const section5 = {
-  id: 'plan-mode',
-  label: 'Workflows',
-  title: 'Think First, Build Second',
-  subtitle: 'The difference between useful AI and AI that creates more work.',
+export const section3 = {
+  id: 'claude-code-overview',
+  label: 'Build & Code',
+  title: 'Claude Code',
+  subtitle: 'An AI agent that reads your project, writes code, runs commands, and checks its own work.',
   prose: [
-    "Hit **Shift+Tab twice** (or type `/plan`). Claude switches to planning mode: it can look at everything but won't change anything yet.",
-    "Why this matters: without it, Claude might charge ahead on the wrong approach. Plan Mode forces a simple workflow — **plan, review, approve, then build.** You stay in control.",
-    "For bigger tasks, have Claude write its plan to a file. This becomes a **checklist that carries over between sessions.** Pick up a multi-day project exactly where you left off."
+    "Claude Code isn't autocomplete. It's an **autonomous agent** — you give it a goal, and it figures out the steps. It reads your project files to understand the structure, writes or modifies code, runs terminal commands like tests or builds, and iterates until the task is done.",
+    "This makes it fundamentally different from other AI coding tools. You're not pasting code snippets into a chat window or accepting one-line suggestions. You're delegating a task and reviewing the result.",
+    "The best mental model: **a capable contractor who works fast and needs clear direction.** Tell it what you want and how you'll know it worked. It handles the how.",
   ],
   terminal: {
-    title: 'Plan Mode in Action',
+    title: 'Claude Code in Action',
     steps: [
-      { type: 'output', content: '> /plan' },
-      { type: 'output', content: '[Plan Mode - looking only, no changes]' },
+      { type: 'command', content: 'cd ~/projects/demo-integration && claude' },
       { type: 'output', content: '' },
-      { type: 'output', content: '> add a login system to this app' },
+      { type: 'claude-thinking', content: 'Scanning project: 24 files, React + Node, no tests yet...' },
       { type: 'output', content: '' },
-      { type: 'claude-thinking', content: 'Looking at the project...' },
+      { type: 'claude-response', content: 'This is a Salesforce integration with a React frontend. What would you like to work on?' },
       { type: 'output', content: '' },
-      { type: 'claude-response', content: "Here's my plan:" },
-      { type: 'output', content: '1. Set up the login system' },
-      { type: 'output', content: '2. Create sign-in and sign-out pages' },
-      { type: 'output', content: '3. Protect pages that need a login' },
-      { type: 'output', content: '4. Update 3 existing pages' },
+      { type: 'output', content: '> add input validation to the contact form and write tests for it' },
       { type: 'output', content: '' },
-      { type: 'output', content: 'New files: 4 | Changed files: 5' },
-      { type: 'output', content: 'Shall I proceed?' },
+      { type: 'claude-thinking', content: 'Reading ContactForm.jsx... Reading existing test patterns...' },
+      { type: 'output', content: '' },
+      { type: 'claude-response', content: 'Added validation for 5 fields. Created ContactForm.test.js with 8 test cases. All passing.' },
     ],
   },
-  takeaway: "For anything beyond a one-file change, start in Plan Mode. Always.",
+  takeaway: "Claude Code works best when you **describe the goal and the success condition**, not the step-by-step approach. Let it figure out the how.",
+}
+
+export const section4 = {
+  id: 'claude-code-setup',
+  label: 'Build & Code',
+  title: 'Getting Started with Claude Code',
+  subtitle: 'Install, log in, and configure your project. Under 5 minutes.',
+  prose: [
+    "**Install with one command.** Claude Code runs in your terminal. After installation, run `claude` in any project folder and it reads the project to get oriented.",
+    "**The most important setup step** is creating a `CLAUDE.md` file in your project root. Claude reads this at the start of every session — it tells Claude what the project does, how to run it, and any rules to follow. Run `/init` inside Claude and it generates a solid starting version from your project structure.",
+    "Keep CLAUDE.md **under 200 lines**. More instructions don't mean better results — they dilute Claude's attention. Cover the what, the how to run it, and the key constraints. Skip the obvious.",
+  ],
+  terminal: {
+    title: 'Setup',
+    steps: [
+      { type: 'command', content: 'npm install -g @anthropic-ai/claude-code' },
+      { type: 'output', content: 'claude-code installed successfully' },
+      { type: 'output', content: '' },
+      { type: 'command', content: 'cd ~/projects/demo-app && claude' },
+      { type: 'output', content: 'Logged in as jane@salesforce.com' },
+      { type: 'output', content: '' },
+      { type: 'command', content: '/init' },
+      { type: 'claude-thinking', content: 'Reading project structure...' },
+      { type: 'claude-response', content: 'Generated CLAUDE.md:' },
+      { type: 'output', content: '' },
+      { type: 'file-change', content: '+ # Demo App\n+ \n+ ## What This Is\n+ A Salesforce integration demo with React frontend\n+ \n+ ## How to Run\n+ - `npm run dev` -- start local server\n+ - `npm test` -- run tests\n+ \n+ ## Conventions\n+ - Components use PascalCase\n+ - API calls go in src/api/' },
+    ],
+    expandable: true,
+  },
+  deepCut: {
+    title: 'Three levels of instructions',
+    content: "**CLAUDE.md** is for project-level context (what is this, how does it run). **~/.claude/CLAUDE.md** is for personal preferences that apply across all projects. **Skills** are reference files Claude loads only when relevant — good for specialized team workflows. Start with project CLAUDE.md. Add the others if you find yourself repeating the same context across sessions."
+  },
+  takeaway: "Install, run `/init` to generate CLAUDE.md, keep it short. That's the whole setup.",
+}
+
+export const section5 = {
+  id: 'claude-code-workflows',
+  label: 'Build & Code',
+  title: 'Claude Code Workflows',
+  subtitle: 'Plan first, build second. The habits that separate good results from great ones.',
+  prose: [
+    "**Plan Mode** (Shift+Tab twice, or `/plan`) is the most important habit to build. In Plan Mode, Claude can read everything but won't change anything. You see the full approach before a single file gets modified. For anything beyond a one-file change, start here.",
+    "**Permissions** control how often Claude asks before acting. By default, it asks before every file change or command — which creates approval fatigue. Use `claude --sandbox` or configure `/permissions` to pre-approve safe operations. The safety net isn't permissions; it's **checkpoints** — Claude saves state before every change, and Esc+Esc rolls it back.",
+    "**Context** is Claude's working memory. It fills up during long sessions, and when it does, quality drops. Check it with `/context`. Free up space with `/compact`. For new tasks, `/clear` and start fresh with a one-sentence summary of what you're building.",
+    "**Prompting**: be specific about the goal and how success is measured. \"Make it faster\" is a question. \"The page loads in 3.2 seconds — get it under 1\" is a task. Use `/model` to switch to Opus 4.6 for complex problems and Sonnet 4.6 for fast everyday work.",
+  ],
+  terminal: {
+    title: 'Plan Mode → Build',
+    steps: [
+      { type: 'output', content: '> /plan' },
+      { type: 'output', content: '[Plan Mode -- read only, no changes]' },
+      { type: 'output', content: '' },
+      { type: 'output', content: '> add Salesforce OAuth to this app' },
+      { type: 'output', content: '' },
+      { type: 'claude-thinking', content: 'Reading auth patterns, existing routes, config files...' },
+      { type: 'output', content: '' },
+      { type: 'claude-response', content: "Here's my plan:" },
+      { type: 'output', content: '1. Add OAuth config to .env.example' },
+      { type: 'output', content: '2. Create src/auth/salesforce.js (new)' },
+      { type: 'output', content: '3. Update server.js to add /auth and /callback routes' },
+      { type: 'output', content: '4. Update 2 existing pages to use auth state' },
+      { type: 'output', content: '' },
+      { type: 'output', content: 'New files: 1 | Changed files: 3 | Shall I proceed?' },
+    ],
+  },
+  takeaway: "Plan first. Keep sessions focused on one task. Read what changed before approving. **That\'s 80% of being good at this.**",
 }
 
 export const section6 = {
-  id: 'permissions',
-  label: 'Workflows',
-  title: 'Stay Safe, Move Fast',
-  subtitle: 'How to let Claude move fast without breaking things.',
+  id: 'cursor-overview',
+  label: 'Build & Code',
+  title: 'Cursor',
+  subtitle: 'VS Code with AI built in. For when you want to stay in your editor.',
   prose: [
-    "By default, Claude asks permission before changing files or running commands. Safe, but annoying — constant pop-ups lead to **\"approval fatigue\"** where you stop reading what you're approving.",
-    "Fix this with `/permissions` to pre-approve safe commands, or use **sandbox mode** so Claude works freely inside a protected space. Anthropic reports ~84% fewer permission pop-ups with these turned on.",
-    "Your safety net: **checkpoints.** Claude saves your work before every change. Hit **Esc twice** to undo. Unlimited undo. This means you can try big, ambitious things — knowing you can always snap back to how it was before."
+    "Cursor is a fork of VS Code — it looks identical, accepts all VS Code extensions, and works with your existing settings. The difference is AI is woven into the editing experience itself, not bolted on as a sidebar.",
+    "**Tab autocomplete** suggests the next line (or block) as you type — context-aware, not generic. Accept with Tab, ignore by continuing to type. **Cmd+K** opens an inline edit prompt: select code, describe the change, Cursor applies it without leaving the file. **Cmd+L** opens a chat panel with access to your codebase via `@codebase`.",
+    "**Composer** (Cmd+Shift+I) is the closest Cursor gets to Claude Code territory — multi-file changes from a single prompt. It shows diffs for each file before applying. Good for medium-complexity refactors where you want to stay in the editor throughout.",
+    "Cursor supports multiple AI models. For most coding tasks, Claude Sonnet 4.6 is the default and works well. Switch to Claude Opus 4.6 for harder problems.",
   ],
   terminal: {
-    title: 'Permissions & Undo',
+    title: 'Cursor Surfaces',
     steps: [
-      { type: 'output', content: '-- Without configured permissions --' },
-      { type: 'claude-response', content: 'I need to run: npm test' },
-      { type: 'output', content: '[Allow? y/n]' },
-      { type: 'claude-response', content: 'I need to change: src/auth.ts' },
-      { type: 'output', content: '[Allow? y/n]  ...this gets old fast' },
+      { type: 'output', content: '-- As you type --' },
+      { type: 'output', content: 'Cursor sees your context and suggests the next line.' },
+      { type: 'output', content: 'Tab to accept. Keep typing to ignore.' },
       { type: 'output', content: '' },
-      { type: 'output', content: '-- With sandbox mode --' },
-      { type: 'command', content: 'claude --sandbox' },
-      { type: 'claude-response', content: 'Sandbox mode. I can work freely inside your project.' },
+      { type: 'divider' },
       { type: 'output', content: '' },
-      { type: 'output', content: '-- Undoing a change --' },
-      { type: 'output', content: '[Esc Esc] Rolled back. 2 files restored.' },
+      { type: 'output', content: '-- Cmd+K (inline edit) --' },
+      { type: 'output', content: 'Select a function. Press Cmd+K.' },
+      { type: 'output', content: '> Add error handling for null input' },
+      { type: 'output', content: '[Diff shown inline. Accept or reject.]' },
+      { type: 'output', content: '' },
+      { type: 'divider' },
+      { type: 'output', content: '' },
+      { type: 'output', content: '-- Cmd+Shift+I (Composer) --' },
+      { type: 'output', content: '> Update all API calls to use the new auth token format' },
+      { type: 'output', content: '[3 files shown with diffs. Review each. Apply all.]' },
     ],
   },
-  takeaway: "Checkpoints mean you can be ambitious. Try big changes knowing you can always undo.",
-}
-
-export const section7 = {
-  id: 'context-management',
-  label: 'Workflows',
-  title: 'Memory & Context',
-  subtitle: "Claude doesn't load your whole project at once. Here's how it actually works.",
-  prose: [
-    "Claude reads files as they become relevant. It has a **limited working memory** — think of it like a desk that can only hold so many papers at once. Your conversation, files, and command results all take up space.",
-    "When that memory fills up, Claude's quality drops. Use `/context` to check how full it is, `/compact` to free up space by summarizing old conversation, or `/clear` to start fresh. Your CLAUDE.md instructions always stay loaded.",
-    "For longer tasks, **break them into focused sessions.** After clearing, give a brief recap: \"We're building X. We've done Y. Next step is Z.\" Or use `claude --resume` to pick up where you left off."
-  ],
-  terminal: {
-    title: 'Managing Memory',
-    steps: [
-      { type: 'command', content: '/context' },
-      { type: 'output', content: '' },
-      { type: 'output', content: 'Memory: 71% full' },
-      { type: 'output', content: '  Chat: 63% | Files: 29% | System: 8%' },
-      { type: 'output', content: '' },
-      { type: 'command', content: '/compact' },
-      { type: 'claude-thinking', content: 'Summarizing conversation...' },
-      { type: 'output', content: 'Compressed. Freed up 73% of memory.' },
-    ],
-  },
-  takeaway: "Claude's memory is limited. Check it, compress it, and start fresh for new tasks.",
-}
-
-export const section8 = {
-  id: 'prompting',
-  label: 'Workflows',
-  title: 'Writing Good Prompts',
-  subtitle: "The best Claude Code users aren't the most technical. They're the best communicators.",
-  prose: [
-    "**Be specific** about what you want and how you'll know it worked. \"Make the app better\" gets you a clarifying question. \"The dashboard loads in 3.2 seconds — get it under 1 second\" gets you a solution.",
-    "Use `/model` to pick the right brain for the job. **Sonnet** is fast — good for simple tasks like renaming things or small changes. **Opus** is smarter — use it for tough problems. You can even add the word **\"ultrathink\"** to any prompt to tell Claude to think extra carefully before acting.",
-    "Keyboard shortcuts worth knowing: **Tab** to complete, **Up** for history, **Shift+Tab twice** for Plan Mode, **Esc twice** to undo. Everything else, just type what you need in plain English."
-  ],
-  terminal: {
-    title: 'Good Prompt vs. Vague Prompt',
-    steps: [
-      { type: 'output', content: '-- Vague --' },
-      { type: 'output', content: '> make the app better' },
-      { type: 'claude-response', content: "Could you be more specific? Speed, design, features...?" },
-      { type: 'output', content: '' },
-      { type: 'output', content: '-- Specific --' },
-      { type: 'output', content: '> The dashboard loads in 3.2 seconds.' },
-      { type: 'output', content: '  Get it under 1 second.' },
-      { type: 'output', content: '' },
-      { type: 'claude-thinking', content: 'Checking what\'s slow...' },
-      { type: 'claude-response', content: 'Fixed 3 issues. Load time: 3.2s -> 0.8s.' },
-    ],
-  },
-  deepCut: {
-    title: 'Two settings worth changing',
-    content: "Turn on **thinking mode** (shows Claude's reasoning as it works) and set **output style to explanatory** (Claude narrates what it's doing). Both make sessions more transparent, which is especially useful when you're still learning."
-  },
-  takeaway: "Describe what you want, how you'll measure success, and any constraints. That's the whole formula.",
+  takeaway: "Cursor is the right choice when you\'re **already in a file and want to stay there**. For tasks that require running commands or spanning many files autonomously, Claude Code has the edge.",
 }

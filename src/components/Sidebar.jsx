@@ -6,28 +6,33 @@ const tiers = [
   {
     label: 'Start Here',
     sections: [
-      { id: 'what-is-vibe-coding', title: 'What is Vibe Coding?' },
-      { id: 'what-is-claude-code', title: 'What It Does' },
-      { id: 'where-it-runs', title: 'Where It Runs' },
-      { id: 'getting-started', title: 'Install It' },
-      { id: 'claude-md', title: 'Set It Up' },
+      { id: 'why-ai-tools', title: 'Why This Matters' },
+      { id: 'tools-at-a-glance', title: 'The 3 Tools' },
+      { id: 'when-to-use-which', title: 'When to Use Which' },
     ],
   },
   {
-    label: 'Use It Well',
+    label: 'Build & Code',
     sections: [
-      { id: 'plan-mode', title: 'Think First, Build Second' },
-      { id: 'permissions', title: 'Stay Safe, Move Fast' },
-      { id: 'context-management', title: 'Memory & Context' },
-      { id: 'prompting', title: 'Writing Good Prompts' },
+      { id: 'claude-code-overview', title: 'Claude Code' },
+      { id: 'claude-code-setup', title: 'Getting Started' },
+      { id: 'claude-code-workflows', title: 'Claude Code Workflows' },
+      { id: 'cursor-overview', title: 'Cursor' },
+    ],
+  },
+  {
+    label: 'Demo & Present',
+    sections: [
+      { id: 'cursor-workflows', title: 'Cursor Workflows' },
+      { id: 'saleo-overview', title: 'Saleo' },
+      { id: 'saleo-workflows', title: 'Building Better Demos' },
     ],
   },
   {
     label: 'Go Deeper',
     sections: [
-      { id: 'custom-commands', title: 'Customize It' },
-      { id: 'multi-agent', title: 'Multiple Agents' },
-      { id: 'patterns', title: 'What Works, What Doesn\'t' },
+      { id: 'combining-tools', title: 'Using Them Together' },
+      { id: 'best-practices', title: 'What Works, What Doesn\'t' },
       { id: 'quick-reference', title: 'Cheat Sheet' },
     ],
   },
@@ -52,13 +57,11 @@ export default function Sidebar() {
   const nav = (
     <nav className="py-6 px-4">
       <div className="mb-6 px-2">
-        <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="Claude Code" className="w-7 h-7 mb-2" />
-        <p className="font-[var(--font-heading)] text-[17px] text-[var(--color-text)]">Coding with Claude</p>
-        <p className="text-[13px] text-[var(--color-text-muted)] mt-0.5">A Guide for Salesforce SEs</p>
+        <p className="font-semibold text-[15px] text-[var(--color-heading)]">A field guide for Salesforce SEs</p>
       </div>
       {tiers.map((tier) => (
         <div key={tier.label} className="mb-5">
-          <p className="text-[13px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-muted)] px-2 mb-2">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-muted)] px-2 mb-2">
             {tier.label}
           </p>
           <ul className="space-y-0.5">
@@ -68,8 +71,8 @@ export default function Sidebar() {
                   onClick={() => handleClick(section.id)}
                   className={`w-full text-left text-[15px] px-2 py-1.5 rounded transition-colors cursor-pointer ${
                     activeId === section.id
-                      ? 'text-[var(--color-text)] bg-[var(--color-border-light)] border-l-2 border-[var(--color-accent)] pl-3'
-                      : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:bg-[var(--color-border-light)]'
+                      ? 'text-[var(--color-accent)] bg-[var(--color-accent)]/8 border-l-2 border-[var(--color-accent)] pl-3 font-medium'
+                      : 'text-[var(--color-text-secondary)] hover:text-[var(--color-heading)] hover:bg-[var(--color-border-light)]'
                   }`}
                 >
                   {section.title}
@@ -85,14 +88,14 @@ export default function Sidebar() {
   return (
     <>
       {/* Desktop sidebar */}
-      <aside className="hidden md:block fixed left-0 top-[3px] w-[260px] h-[calc(100vh-3px)] bg-[var(--color-bg-white)] border-r border-[var(--color-border)] overflow-y-auto z-40">
+      <aside className="hidden md:block fixed left-0 top-[56px] w-[260px] h-[calc(100vh-56px)] bg-[var(--color-bg-sidebar)] border-r border-[var(--color-border)] overflow-y-auto z-40">
         {nav}
       </aside>
 
       {/* Mobile hamburger */}
       <button
         onClick={() => setOpen(!open)}
-        className="md:hidden fixed top-3 left-3 z-50 p-2 rounded-lg bg-[var(--color-bg-white)] border border-[var(--color-border)] shadow-sm cursor-pointer"
+        className="md:hidden fixed top-[68px] left-3 z-50 p-2 rounded-lg bg-[var(--color-bg-white)] border border-[var(--color-border)] shadow-sm cursor-pointer"
       >
         {open ? <X size={18} /> : <Menu size={18} />}
       </button>

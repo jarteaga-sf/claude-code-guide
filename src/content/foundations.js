@@ -1,119 +1,90 @@
 export const section0 = {
-  id: 'what-is-vibe-coding',
-  label: 'Foundations',
-  title: 'What is Vibe Coding?',
-  subtitle: 'The simplest idea in the world — and it changes everything.',
+  id: 'why-ai-tools',
+  label: 'Start Here',
+  title: 'Why This Matters',
+  subtitle: 'AI is changing what SEs can build, demo, and deliver — not just how they write code.',
   prose: [
-    "**The old way:** you write code line by line. You need to know the language. It takes years of training.",
-    "**The new way:** you describe what you want in plain English. AI writes the code. You review and refine.",
-    "Why \"vibe\"? Because you're **steering by feel**, not memorizing programming languages. You set the direction. AI handles the details. Andrej Karpathy coined the term in early 2025, and it caught on because it captures something real: AI is good enough now that the hard part isn't writing code — it's knowing what to build and how it should work.",
-    "This guide is about **Claude Code**, the tool that makes vibe coding practical. But the concept matters more than any tool. Once you understand it, you'll see opportunities everywhere."
+    "The role of a Salesforce SE has always required range: technical depth, business acuity, and the ability to tell a compelling story. AI tools are expanding that range. Not by replacing judgment, but by collapsing the time between idea and execution.",
+    "**Building a custom demo integration?** An AI coding tool can scaffold it in an afternoon. **Refining a prospect-specific data set?** A demo tool can make it feel real in minutes. **Editing a script mid-flight?** An inline AI editor keeps you in flow.",
+    "This guide covers three tools your team has access to: **Claude Code** for agentic, multi-step coding tasks; **Cursor** for editor-centric AI assistance; and **Saleo** for demo customization and data overlays. Each solves a different problem. The goal is knowing which one to reach for.",
+    "You don't need to be a developer to get value here. Most of the power comes from knowing what to ask and understanding what each tool does well."
   ],
-  takeaway: "Vibe coding isn't about writing less code. It's about spending your time on what matters — **the thinking, not the typing.**",
+  takeaway: "These aren't coding tools for developers. They're **leverage tools for SEs** — people who need to move fast across a wide surface area.",
 }
 
 export const section1 = {
-  id: 'what-is-claude-code',
-  label: 'Foundations',
-  title: 'What It Does',
-  subtitle: "Not autocomplete. Not a chatbot. An AI that works inside your project.",
+  id: 'tools-at-a-glance',
+  label: 'Start Here',
+  title: 'The 3 Tools',
+  subtitle: 'Different problems, different tools. Here\'s the one-line version of each.',
   prose: [
-    "Claude Code is the tool that makes vibe coding real. It **reads your files**, understands how your project is organized, **writes code**, and **checks its own work**. You tell it what to build. It does the building.",
-    "How is it different from other AI tools? **Copilot** suggests code as you type — still one line at a time. **Cursor** is a code editor with AI built in. **ChatGPT** requires copy-paste. **Claude Code** lives inside your project and can do multiple steps in a row without you stepping in."
+    "**Claude Code** is an agentic AI that works inside your terminal or editor. It reads your project files, understands how everything fits together, writes code, runs commands, and checks its own work — all in sequence, without you having to step in between every action.",
+    "**Cursor** is a VS Code fork with AI woven throughout. It offers inline autocomplete as you type, inline edits on selected code, and a composer for larger multi-file changes. If you live in a code editor, Cursor meets you there.",
+    "**Saleo** is a demo customization platform for Salesforce. It lets you overlay realistic, prospect-specific data on top of live Salesforce orgs — without touching real customer data or rebuilding sandbox environments from scratch.",
   ],
   terminal: {
-    title: 'First Launch',
+    title: 'Tool Comparison',
     steps: [
-      { type: 'command', content: 'cd ~/projects/my-app' },
-      { type: 'command', content: 'claude' },
+      { type: 'output', content: '-- Claude Code --' },
+      { type: 'output', content: 'Where: Terminal, VS Code sidebar, desktop app' },
+      { type: 'output', content: 'Best for: Multi-step tasks, project-wide changes, automation' },
+      { type: 'output', content: 'How: Reads files, runs commands, checks its own work' },
       { type: 'output', content: '' },
-      { type: 'output', content: 'Claude Code v1.0.26' },
-      { type: 'output', content: 'Working directory: ~/projects/my-app' },
+      { type: 'divider' },
       { type: 'output', content: '' },
-      { type: 'claude-thinking', content: 'Scanning project...' },
+      { type: 'output', content: '-- Cursor --' },
+      { type: 'output', content: 'Where: The editor itself (VS Code fork)' },
+      { type: 'output', content: 'Best for: Inline edits, autocomplete, staying in flow' },
+      { type: 'output', content: 'How: Tab autocomplete, Cmd+K edits, multi-file Composer' },
       { type: 'output', content: '' },
-      { type: 'claude-response', content: 'This is a web app with 12 pages and a bunch of reusable pieces. How can I help?' },
+      { type: 'divider' },
+      { type: 'output', content: '' },
+      { type: 'output', content: '-- Saleo --' },
+      { type: 'output', content: 'Where: Browser extension + Salesforce org' },
+      { type: 'output', content: 'Best for: Demo prep, prospect-specific data overlays' },
+      { type: 'output', content: 'How: Overlays data on live orgs without modifying real records' },
     ],
   },
-  takeaway: "Claude Code doesn't suggest code. It **writes it, tests it, and delivers it** — while you stay in control of the direction.",
+  takeaway: "Claude Code builds things. Cursor edits things. Saleo shows things. **Most SE workflows touch all three.**",
 }
 
 export const section2 = {
-  id: 'where-it-runs',
-  label: 'Foundations',
-  title: 'Where It Runs',
-  subtitle: 'Terminal, VS Code, desktop app, browser, or your phone.',
+  id: 'when-to-use-which',
+  label: 'Start Here',
+  title: 'When to Use Which',
+  subtitle: 'The decision framework. Start here when you\'re not sure which tool to open.',
   prose: [
-    "Claude Code works wherever you do. The **terminal** (command line) is the most powerful version. There are also extensions for **VS Code** and **JetBrains**, a **desktop app**, a **web version**, and an **iOS app** for checking on tasks from your phone.",
-    "For learning, start with the terminal. New features show up there first, and it's the clearest way to see how Claude thinks."
+    "The most common mistake is reaching for the wrong tool — using a coding agent when you just need inline autocomplete, or configuring a sandbox from scratch when Saleo could handle it in minutes.",
+    "The scenarios below cover the most common SE situations. For anything not on the list: if the task is **multi-step and file-based**, Claude Code. If you're **already editing code**, Cursor. If the goal is **what the customer sees**, Saleo.",
   ],
   terminal: {
-    title: 'Same Task, Different Surfaces',
+    title: 'Scenario → Tool',
     steps: [
-      { type: 'output', content: '-- Terminal --' },
-      { type: 'command', content: 'claude "add an error message when the email field is empty"' },
+      { type: 'output', content: 'I need to build a script from scratch' },
+      { type: 'claude-response', content: 'Claude Code' },
       { type: 'output', content: '' },
-      { type: 'output', content: '-- VS Code --' },
-      { type: 'output', content: 'Sidebar panel > "add an error message when the email field is empty"' },
+      { type: 'output', content: 'I\'m editing a file and want suggestions as I type' },
+      { type: 'claude-response', content: 'Cursor' },
       { type: 'output', content: '' },
-      { type: 'output', content: 'Same AI. Same result. Different interface.' },
+      { type: 'output', content: 'I\'m prepping a demo for a specific prospect' },
+      { type: 'claude-response', content: 'Saleo' },
+      { type: 'output', content: '' },
+      { type: 'output', content: 'I need to refactor multiple files across a codebase' },
+      { type: 'claude-response', content: 'Claude Code (or Cursor Composer for smaller scope)' },
+      { type: 'output', content: '' },
+      { type: 'output', content: 'I want to tweak a function while staying in my editor' },
+      { type: 'claude-response', content: 'Cursor (Cmd+K inline edit)' },
+      { type: 'output', content: '' },
+      { type: 'output', content: 'I need realistic data in a Salesforce demo org' },
+      { type: 'claude-response', content: 'Saleo' },
+      { type: 'output', content: '' },
+      { type: 'output', content: 'I want to understand a codebase I\'ve never seen' },
+      { type: 'claude-response', content: 'Claude Code (@codebase or /ask)' },
     ],
-  },
-  takeaway: "Start with the terminal. It's the most capable version and the best way to learn how Claude works.",
-}
-
-export const section3 = {
-  id: 'getting-started',
-  label: 'Foundations',
-  title: 'Install It',
-  subtitle: 'From zero to your first useful result in under 5 minutes.',
-  prose: [
-    "**One command** to install. **One browser tab** to log in. That's it.",
-    "Your first session: open a project folder and type `claude`. It looks at your project, figures out what tools you're using, and tells you what it found. Try **\"what does this project do?\"** as your first question. Then ask it to make a small change and watch what happens."
-  ],
-  terminal: {
-    title: 'First Session',
-    steps: [
-      { type: 'command', content: 'npm install -g @anthropic-ai/claude-code' },
-      { type: 'output', content: 'claude-code installed successfully' },
-      { type: 'output', content: '' },
-      { type: 'command', content: 'claude' },
-      { type: 'output', content: 'Logged in as jonathan@salesforce.com' },
-      { type: 'output', content: '' },
-      { type: 'command', content: 'cd ~/projects/demo-app && claude' },
-      { type: 'claude-response', content: "This looks like a web app with a dashboard and settings page. What would you like to work on?" },
-    ],
-  },
-  takeaway: "The only setup that matters is install and log in. Everything else, Claude figures out from your project.",
-}
-
-export const section4 = {
-  id: 'claude-md',
-  label: 'Foundations',
-  title: 'Set It Up',
-  subtitle: 'The single most important file in your project.',
-  prose: [
-    "**CLAUDE.md** is a simple text file you put in your project folder. Claude reads it every time you start a session. Think of it as a **cheat sheet for your AI** — it tells Claude how your project works so you don't have to repeat yourself.",
-    "**What goes in it:** what the project is, what tools it uses, how to run it, and any rules your team follows. **What doesn't:** actual code (it gets outdated), super detailed style guides, or every possible instruction.",
-    "You don't have to write it from scratch. Type `/init` and Claude will look at your project and generate one for you. It's a solid starting point you can tweak over time.",
-    "One rule: **keep it short.** Under 200 lines is ideal. If you overload it with too many instructions, Claude gets worse at following all of them — not better."
-  ],
-  terminal: {
-    title: 'Generating Your Setup File',
-    steps: [
-      { type: 'command', content: 'claude /init' },
-      { type: 'output', content: '' },
-      { type: 'claude-thinking', content: 'Looking at your project...' },
-      { type: 'output', content: '' },
-      { type: 'claude-response', content: 'Generated CLAUDE.md:' },
-      { type: 'output', content: '' },
-      { type: 'file-change', content: '+ # Demo Portal App\n+ \n+ ## What This Is\n+ - A web app with a dashboard and settings\n+ - Built with React and Tailwind CSS\n+ \n+ ## How to Run It\n+ - `npm run dev` -- start the app\n+ - `npm test` -- run tests\n+ \n+ ## Team Rules\n+ - Name files with capital letters (e.g. UserProfile)\n+ - Keep pages organized by feature' },
-    ],
-    expandable: true,
   },
   deepCut: {
-    title: 'Three types of instructions: when to use which',
-    content: "**CLAUDE.md** is for project-level info that every session needs (\"what is this project and how does it work\"). **Memory** is for your personal preferences that apply across all projects (\"I prefer detailed explanations\"). **Skills** are specialized instructions Claude pulls in only when relevant (\"how to set up a demo\"). Start with CLAUDE.md — the others are optional."
+    title: 'When the tools overlap',
+    content: "Claude Code and Cursor can both handle multi-file edits. The difference is **interface** and **scope**. Cursor keeps you in the editor with immediate visual feedback. Claude Code works in the terminal and is better at longer, more autonomous sequences — especially when the task requires running commands (like tests or builds) as part of the workflow. When in doubt, start with Claude Code for anything that takes more than 3 steps."
   },
-  takeaway: "Think of CLAUDE.md as a cheat sheet for your AI. Tell it the what, why, and how. Keep it short.",
+  takeaway: "Multi-step + file-based = Claude Code. Editor-centric + in-flow = Cursor. Demo-facing + data = Saleo.",
 }

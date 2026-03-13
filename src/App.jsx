@@ -5,9 +5,9 @@ import KeyTakeaway from '@/components/KeyTakeaway'
 import DeepCut from '@/components/DeepCut'
 import QuickReference from '@/components/QuickReference'
 
-import { section0, section1, section2, section3, section4 } from '@/content/foundations'
-import { section5, section6, section7, section8 } from '@/content/workflows'
-import { section9, section10, section11, section12 } from '@/content/power-user'
+import { section0, section1, section2 } from '@/content/foundations'
+import { section3, section4, section5, section6 } from '@/content/workflows'
+import { section7, section8, section9, section10, section11, section12 } from '@/content/power-user'
 
 function RichText({ text }) {
   const parts = text.split(/(\*\*.*?\*\*|`[^`]+`)/g)

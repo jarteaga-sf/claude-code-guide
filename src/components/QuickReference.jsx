@@ -18,19 +18,32 @@ function CopyButton({ text }) {
 export default function QuickReference({ data }) {
   return (
     <div className="space-y-8">
-      {/* Install */}
+      {/* When to Use Which */}
       <div>
-        <h3 className="font-[var(--font-heading)] text-[22px] mb-3">Installation</h3>
-        <div className="flex items-center gap-2 bg-[var(--color-terminal-bg)] rounded-lg px-4 py-3 font-[var(--font-mono)] text-[15px] text-[var(--color-terminal-text)]">
-          <span className="text-[var(--color-terminal-green)]">$</span>
-          <span className="flex-1">brew install claude-code</span>
-          <CopyButton text="brew install claude-code" />
+        <h3 className="font-[var(--font-heading)] text-[22px] mb-3">When to Use Which</h3>
+        <div className="rounded-lg overflow-hidden shadow-[var(--shadow-card)]">
+          <table className="w-full text-[15px]">
+            <thead>
+              <tr className="bg-[var(--color-border-light)]">
+                <th className="text-left px-4 py-2 font-semibold text-[var(--color-text-secondary)]">Scenario</th>
+                <th className="text-left px-4 py-2 font-semibold text-[var(--color-text-secondary)] whitespace-nowrap">Reach for</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.toolMatrix.map((row, i) => (
+                <tr key={i} className="border-t border-[var(--color-border)]">
+                  <td className="px-4 py-2 text-[var(--color-text-secondary)]">{row.scenario}</td>
+                  <td className="px-4 py-2 font-medium text-[var(--color-accent)] whitespace-nowrap">{row.tool}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
 
-      {/* Commands Table */}
+      {/* Claude Code Commands */}
       <div>
-        <h3 className="font-[var(--font-heading)] text-[22px] mb-3">Essential Commands</h3>
+        <h3 className="font-[var(--font-heading)] text-[22px] mb-3">Claude Code Commands</h3>
         <div className="rounded-lg overflow-hidden shadow-[var(--shadow-card)]">
           <table className="w-full text-[15px]">
             <thead>
@@ -53,22 +66,35 @@ export default function QuickReference({ data }) {
         </div>
       </div>
 
-      {/* Keyboard Shortcuts */}
-      <div>
-        <h3 className="font-[var(--font-heading)] text-[22px] mb-3">Keyboard Shortcuts</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-          {data.shortcuts.map((s, i) => (
-            <div key={i} className="flex items-center gap-2 px-3 py-2 bg-[var(--color-bg-white)] rounded-lg shadow-[var(--shadow-card)]">
-              <kbd className="px-2 py-0.5 bg-[var(--color-border-light)] rounded text-[13px] font-[var(--font-mono)] font-semibold text-[var(--color-text)]">{s.key}</kbd>
-              <span className="text-[15px] text-[var(--color-text-secondary)]">{s.action}</span>
-            </div>
-          ))}
+      {/* Keyboard Shortcuts side by side */}
+      <div className="grid sm:grid-cols-2 gap-6">
+        <div>
+          <h3 className="font-[var(--font-heading)] text-[22px] mb-3">Claude Code Shortcuts</h3>
+          <div className="space-y-2">
+            {data.shortcuts.map((s, i) => (
+              <div key={i} className="flex items-center gap-2 px-3 py-2 bg-[var(--color-bg-white)] rounded-lg shadow-[var(--shadow-card)]">
+                <kbd className="px-2 py-0.5 bg-[var(--color-border-light)] rounded text-[13px] font-[var(--font-mono)] font-semibold text-[var(--color-text)] whitespace-nowrap">{s.key}</kbd>
+                <span className="text-[15px] text-[var(--color-text-secondary)]">{s.action}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h3 className="font-[var(--font-heading)] text-[22px] mb-3">Cursor Shortcuts</h3>
+          <div className="space-y-2">
+            {data.cursorShortcuts.map((s, i) => (
+              <div key={i} className="flex items-center gap-2 px-3 py-2 bg-[var(--color-bg-white)] rounded-lg shadow-[var(--shadow-card)]">
+                <kbd className="px-2 py-0.5 bg-[var(--color-border-light)] rounded text-[13px] font-[var(--font-mono)] font-semibold text-[var(--color-text)] whitespace-nowrap">{s.key}</kbd>
+                <span className="text-[15px] text-[var(--color-text-secondary)]">{s.action}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Model Selection */}
       <div>
-        <h3 className="font-[var(--font-heading)] text-[22px] mb-3">Model Selection</h3>
+        <h3 className="font-[var(--font-heading)] text-[22px] mb-3">Claude Model Selection</h3>
         <div className="space-y-2">
           {data.models.map((m, i) => (
             <div key={i} className="flex items-start gap-3 px-4 py-3 bg-[var(--color-bg-white)] rounded-lg shadow-[var(--shadow-card)]">
@@ -87,20 +113,6 @@ export default function QuickReference({ data }) {
             <div key={i} className="flex items-center gap-3 px-3 py-2">
               <code className="text-[15px] font-[var(--font-mono)] bg-[var(--color-terminal-bg)] text-[var(--color-terminal-text)] px-2 py-0.5 rounded">{p.path}</code>
               <span className="text-[15px] text-[var(--color-text-muted)]">{p.description}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Pricing */}
-      <div>
-        <h3 className="font-[var(--font-heading)] text-[22px] mb-3">Pricing</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-          {data.pricing.map((p, i) => (
-            <div key={i} className="px-4 py-3 bg-[var(--color-bg-white)] rounded-lg shadow-[var(--shadow-card)] text-center">
-              <p className="font-semibold text-[var(--color-text)]">{p.plan}</p>
-              <p className="text-[19px] font-[var(--font-heading)] text-[var(--color-accent)]">{p.price}</p>
-              <p className="text-[13px] text-[var(--color-text-muted)]">{p.notes}</p>
             </div>
           ))}
         </div>

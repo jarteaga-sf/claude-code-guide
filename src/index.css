@@ -1,20 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --font-heading: 'Lora', Georgia, serif;
+  --font-heading: 'Inter', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
 
-  --color-bg: #FAFAF8;
+  --color-bg: #FFFFFF;
   --color-bg-white: #FFFFFF;
-  --color-text: #1A1A1A;
-  --color-text-prose: #37352F;
-  --color-text-secondary: #4A4A4A;
-  --color-text-muted: #8A8A8A;
-  --color-accent: #64748B;
-  --color-accent-hover: #475569;
-  --color-border: #E5E5E3;
-  --color-border-light: #F0F0EE;
+  --color-bg-sidebar: #F7F7F7;
+  --color-text: #181818;
+  --color-text-prose: #3E3E3C;
+  --color-text-secondary: #444444;
+  --color-text-muted: #706E6B;
+  --color-accent: #0176D3;
+  --color-accent-hover: #014486;
+  --color-heading: #032D60;
+  --color-border: #E5E5E5;
+  --color-border-light: #F3F3F3;
+  --color-header-bg: #032D60;
   --color-terminal-bg: #1E1E1E;
   --color-terminal-text: #D4D4D4;
   --color-terminal-green: #4EC9B0;
@@ -23,8 +26,8 @@
   --color-terminal-red: #F44747;
   --color-terminal-dim: #6A6A6A;
   --color-terminal-prompt: #6A9955;
-  --color-takeaway-bg: #F8F8F6;
-  --color-deepcut-bg: #F5F5F3;
+  --color-takeaway-bg: #EEF4FD;
+  --color-deepcut-bg: #F4F6F9;
   --color-diff-add: #2EA04340;
   --color-diff-remove: #F4474740;
 
@@ -42,7 +45,7 @@
   body {
     font-family: var(--font-body);
     font-size: 1.125rem;
-    font-weight: 450;
+    font-weight: 400;
     background-color: var(--color-bg);
     color: var(--color-text);
     margin: 0;
@@ -54,11 +57,13 @@
     font-weight: 700;
     line-height: 1.15;
     letter-spacing: -0.01em;
+    color: var(--color-heading);
   }
 
   h3, h4 {
     font-family: var(--font-heading);
     font-weight: 600;
     line-height: 1.3;
+    color: var(--color-heading);
   }
 }
