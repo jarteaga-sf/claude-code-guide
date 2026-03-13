@@ -1,4 +1,4 @@
-# Coding with AI -- A Guide for Salesforce SEs
+# Coding with Claude -- A Guide for Salesforce SEs
 
 A practical guide to vibe coding with Claude Code. No prior programming experience required.
 

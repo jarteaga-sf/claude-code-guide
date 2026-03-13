@@ -52,7 +52,8 @@ export default function Sidebar() {
   const nav = (
     <nav className="py-6 px-4">
       <div className="mb-6 px-2">
-        <p className="font-[var(--font-heading)] text-[17px] text-[var(--color-text)]">Coding with AI</p>
+        <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="Claude Code" className="w-7 h-7 mb-2" />
+        <p className="font-[var(--font-heading)] text-[17px] text-[var(--color-text)]">Coding with Claude</p>
         <p className="text-[13px] text-[var(--color-text-muted)] mt-0.5">A Guide for Salesforce SEs</p>
       </div>
       {tiers.map((tier) => (
