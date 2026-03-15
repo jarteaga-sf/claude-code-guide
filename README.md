@@ -1,16 +1,16 @@
-# Coding with Claude -- A Guide for Salesforce SEs
+# The SE AI Toolkit -- A Guide for Salesforce SEs
 
-A practical guide to vibe coding with Claude Code. No prior programming experience required.
+An interactive guide to AI tools for Salesforce Solutions Engineers. Claude Code, Cursor, and Saleo -- when to use each and how to use them well.
 
 ![Screenshot](public/screenshot.png)
 
 ## What You'll Learn
 
-- **What vibe coding actually is** -- and why it matters for SEs
-- **How to get started** -- installing Claude Code and setting up your first project
+- **Which tool to reach for** -- Claude Code, Cursor, or Saleo depending on the task
+- **How to get started** -- setup, first steps, and key workflows for each tool
 - **How to think about prompts** -- the difference between good and great instructions
 - **How to stay safe** -- version control, cost management, and avoiding common mistakes
-- **What works and what doesn't** -- real patterns from the field
+- **How to combine them** -- real patterns for using all three together in the field
 
 ## How to Access
 

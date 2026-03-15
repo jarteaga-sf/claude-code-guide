@@ -1,7 +1,7 @@
-# Claude Code Guide
+# The SE AI Toolkit
 
 ## Project Overview
-An interactive, shareable guide that teaches Salesforce SEs how to use Claude Code.
+An interactive guide to AI tools for Salesforce SEs — covering Claude Code, Cursor, and Saleo.
 Built as a static React site with Vite, Tailwind, and shadcn/ui.
 
 ## Tech Stack

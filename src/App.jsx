@@ -4,6 +4,12 @@ import TerminalPanel from '@/components/TerminalPanel'
 import KeyTakeaway from '@/components/KeyTakeaway'
 import DeepCut from '@/components/DeepCut'
 import QuickReference from '@/components/QuickReference'
+import ToolCards from '@/components/ToolCards'
+import ScenarioTable from '@/components/ScenarioTable'
+import FeatureCards from '@/components/FeatureCards'
+import KeyboardReference from '@/components/KeyboardReference'
+import StepFlow from '@/components/StepFlow'
+import WorkflowPipeline from '@/components/WorkflowPipeline'
 
 import { section0, section1, section2 } from '@/content/foundations'
 import { section3, section4, section5, section6 } from '@/content/workflows'
@@ -44,6 +50,12 @@ function ContentSection({ data }) {
           expandable={data.terminal.expandable}
         />
       )}
+      {data.toolCards && <ToolCards cards={data.toolCards} />}
+      {data.scenarios && <ScenarioTable scenarios={data.scenarios} />}
+      {data.features && <FeatureCards features={data.features} />}
+      {data.keyboardRef && <KeyboardReference keyboardRef={data.keyboardRef} />}
+      {data.stepFlow && <StepFlow stepFlow={data.stepFlow} />}
+      {data.pipeline && <WorkflowPipeline pipeline={data.pipeline} />}
       {data.deepCut && (
         <DeepCut title={data.deepCut.title}>
           <p><RichText text={data.deepCut.content} /></p>
