@@ -1,4 +1,5 @@
 import Layout from '@/components/Layout'
+import Hero from '@/components/Hero'
 import Section from '@/components/Section'
 import TerminalPanel from '@/components/TerminalPanel'
 import KeyTakeaway from '@/components/KeyTakeaway'
@@ -72,6 +73,7 @@ function ContentSection({ data, first }) {
 export default function App() {
   return (
     <Layout>
+      <Hero />
       <ContentSection data={section0} first />
       <ContentSection data={section1} />
       <ContentSection data={section2} />

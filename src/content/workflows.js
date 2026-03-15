@@ -4,7 +4,7 @@ export const section3 = {
   title: 'Claude Code',
   subtitle: 'An AI agent that reads your project, writes code, runs commands, and checks its own work.',
   prose: [
-    "Now that you know *when* to reach for Claude Code, let's look at *how* it works. Unlike tools that suggest one line at a time, Claude Code is an **autonomous agent** — you give it a goal, and it figures out the steps. It reads your project files, writes or modifies code, runs terminal commands like tests or builds, and iterates until the task is done.",
+    "Now that you know *when* to reach for Claude Code, let's look at *how* it works. Unlike tools that suggest one line at a time, Claude Code is an **autonomous agent** — meaning you describe a goal and it figures out the steps on its own. It reads your project files, writes or modifies code, runs commands in your terminal (the command line where you type commands), and iterates until the task is done.",
     "You're not pasting snippets into a chat window or accepting one-line suggestions. You're delegating a task and reviewing the result.",
     "The best mental model: **a capable contractor who works fast and needs clear direction.** Tell it what you want and how you'll know it worked. It handles the how.",
   ],
@@ -34,7 +34,7 @@ export const section4 = {
   subtitle: 'Install, configure, and run your first task. Under 5 minutes.',
   prose: [
     "**Install with one command.** Claude Code runs in your terminal. After installation, run `claude` in any project folder and it reads the project to get oriented.",
-    "**The most important setup step** is creating a `CLAUDE.md` file in your project root. Claude reads this at the start of every session — it tells Claude what the project does, how to run it, and any rules to follow. Run `/init` inside Claude and it generates a solid starting version from your project structure.",
+    "**The most important setup step** is creating a `CLAUDE.md` file in your project root (the top-level folder of your project). Claude reads this at the start of every session — it tells Claude what the project does, how to run it, and any rules to follow. Run `/init` inside Claude and it generates a solid starting version from your project structure.",
     "Keep CLAUDE.md **under 200 lines**. More instructions don't mean better results — they dilute Claude's attention. Cover the what, the how-to-run, and the key constraints. Skip the obvious.",
   ],
   terminal: {
@@ -68,8 +68,8 @@ export const section5 = {
   subtitle: 'The habits that separate good results from great ones.',
   prose: [
     "**Plan first, build second.** Plan Mode (Shift+Tab twice, or `/plan`) is the single most important habit to build. In Plan Mode, Claude reads everything but won't change anything — you see the full approach before a file gets modified. For anything beyond a one-file change, start here.",
-    "**Manage permissions thoughtfully.** By default, Claude asks before every file change or command, which creates approval fatigue. Use `claude --sandbox` or `/permissions` to pre-approve safe operations. The real safety net isn't permissions — it's **checkpoints**: Claude saves state before every change, and Esc+Esc rolls it back.",
-    "**Watch your context window.** Context is Claude's working memory, and it fills up during long sessions. When it does, quality drops. Check it with `/context`, free up space with `/compact`, and for new tasks use `/clear` to start fresh with a one-sentence summary of what you're building.",
+    "**Manage permissions thoughtfully.** By default, Claude asks before every file change or command, which creates approval fatigue. Use `claude --sandbox` or `/permissions` to pre-approve safe operations. The real safety net isn't permissions — it's **checkpoints** (saved snapshots that let you undo any change). Claude saves state before every change, and Esc+Esc rolls it back.",
+    "**Keep sessions focused.** Claude has a limited working memory for each session — this is called the context window. The longer a session runs, the more of that memory fills up, and the quality of Claude's output can drop. Three commands help: `/context` shows how much memory is left, `/compact` frees up space by summarizing earlier work, and `/clear` resets the session entirely for a fresh start.",
     "**Prompt with precision.** Be specific about the goal and how success is measured. \"Make it faster\" is a question. \"The page loads in 3.2 seconds — get it under 1\" is a task. Use `/model` to switch between Opus 4.6 for complex problems and Sonnet 4.6 for everyday work.",
   ],
   terminal: {
@@ -98,16 +98,17 @@ export const section6 = {
   id: 'cursor-overview',
   label: 'Build & Code',
   title: 'Cursor',
-  subtitle: 'VS Code with AI built in. For when you want to stay in your editor.',
+  subtitle: 'An AI-powered code editor. For when you want to stay in your editor.',
   prose: [
-    "Where Claude Code is an autonomous agent you hand tasks to, Cursor is an AI copilot that sits inside your editor. It's a fork of VS Code — same look, same extensions, same settings — but with AI woven into every editing action.",
+    "Where Claude Code is an autonomous agent you hand tasks to, Cursor is an AI copilot that sits inside your editor. It's built on VS Code (same look, same extensions, same settings) but with AI woven into every editing action.",
     "The core idea: **you stay in control of the editing flow, and the AI accelerates each step.** You're always looking at the code, always deciding what changes to accept. Cursor makes you faster without taking the wheel.",
-    "There are four features that cover almost everything. **Tab** autocompletes as you type — context-aware, often suggesting 5-10 lines at a time. **Cmd+K** applies an inline edit to selected code from a plain-language description. **Cmd+L** opens a chat panel with `@codebase` access for questions. And **Composer** (Cmd+Shift+I) handles multi-file changes with visual diffs before applying.",
+    "There are four features that cover almost everything. **Tab** autocompletes as you type — context-aware, often suggesting 5-10 lines at a time. **Cmd+K** applies an inline edit to selected code from a plain-language description. **Cmd+L** opens a chat panel with `@codebase` access for questions. And **Composer** (Cmd+Shift+I) handles multi-file changes with visual diffs (a side-by-side view showing exactly what changed) before applying.",
   ],
   features: [
     { shortcut: 'Tab', name: 'Autocomplete', description: 'Suggests the next line or block based on your context. Tab to accept, keep typing to ignore. Low-cost to try, high-value when it lands.' },
     { shortcut: 'Cmd+K', name: 'Inline Edit', description: 'Select code, describe the change in plain language, review the diff in place. The fastest path for targeted edits.' },
-    { shortcut: 'Cmd+Shift+I', name: 'Composer', description: 'Multi-file changes from a single prompt with visual diffs. Use for refactors, API migrations, or anything spanning 2+ files.' },
+    { shortcut: 'Cmd+L', name: 'Chat Panel', description: 'Ask questions about your codebase with @codebase context. Use for understanding code, not for making changes — reach for Cmd+K for edits.' },
+    { shortcut: 'Cmd+Shift+I', name: 'Composer', description: 'Multi-file changes from a single prompt with visual diffs. Use for restructuring code, updating how components connect to Salesforce, or anything spanning 2+ files.' },
   ],
   takeaway: "Cursor is the right choice when you're **already in a file and want to stay there**. For multi-step tasks that require running commands, Claude Code is the better fit.",
 }

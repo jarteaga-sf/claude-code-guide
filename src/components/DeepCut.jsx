@@ -11,7 +11,7 @@ export default function DeepCut({ title, children }) {
         className="flex w-full items-center justify-between px-5 py-3.5 text-left cursor-pointer"
       >
         <span className="text-[15px] font-semibold text-[var(--color-text-secondary)] tracking-[-0.01em]">
-          Deep Cut: {title}
+          Under the Hood: {title}
         </span>
         <ChevronDown
           size={16}

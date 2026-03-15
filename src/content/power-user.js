@@ -1,12 +1,12 @@
 export const section7 = {
   id: 'cursor-workflows',
-  label: 'Demo & Present',
+  label: 'Build & Code',
   title: 'Cursor Workflows',
   subtitle: 'How to get the most out of each feature in practice.',
   prose: [
     "You've seen what Cursor's four features do. Here's how to use them well.",
     "**Tab autocomplete** gets better the more context it has. If you're writing a new function, add a brief comment first — it steers the suggestions. Treat Tab like a fast pair programmer who's read your codebase: sometimes it nails the next 10 lines, sometimes you ignore it and keep typing. The key is it costs nothing to try.",
-    "**Cmd+K** is highest-leverage for editing existing code. Rather than manually refactoring, select the block and describe what you want in plain language: \"add error handling for null response\", \"convert to async/await\", \"rename variables to match our convention\". The diff appears inline — accept or reject without leaving the file.",
+    "**Cmd+K** is highest-leverage for editing existing code. Rather than manually restructuring code, select the block and describe what you want in plain language: \"add error handling for null response\", \"update the error handling\", \"rename variables to match our convention\". The diff appears inline — accept or reject without leaving the file.",
     "**Cmd+L** (chat) is for questions, not edits. Use `@codebase` to ask about project structure, `@filename` to pull in specific files as context. Save Cmd+L for understanding; use Cmd+K for changing.",
     "**Composer** is the bridge between Cursor and Claude Code territory. When a change touches multiple files, Composer shows you exactly what changes in each file before applying. Reach for it when Cmd+K feels too small but Claude Code feels like overkill.",
   ],
@@ -46,7 +46,7 @@ export const section8 = {
       'Switch overlays mid-demo or save templates per prospect or vertical',
     ],
   },
-  takeaway: "Saleo lets you **demo the right story without rebuilding the environment**. The org is your stage; Saleo sets the scene.",
+  takeaway: "Saleo lets you **demo the right story without rebuilding the environment.** You control exactly what the prospect sees — no sandbox rebuild, no manual data entry.",
 }
 
 export const section9 = {
@@ -97,9 +97,10 @@ export const section10 = {
   subtitle: 'Each tool is useful alone. Together, they cover the full SE workflow.',
   prose: [
     "Now that you know each tool individually, here's where the real leverage is: **chaining them together.** Each tool hands off to the next at the point where it has an advantage.",
-    "**Example: building a prospect-specific integration demo.** Start in Claude Code to scaffold the integration — it reads the existing codebase, generates the connection logic, writes tests, and verifies they pass. Move to Cursor to refine the output — Cmd+K on specific functions, adjust variable names, clean up edge cases while staying in the editor. Then switch to Saleo to make the demo environment match the prospect — overlay the right names, numbers, and use cases.",
+    "**Example: building a prospect-specific integration demo.** Start in Claude Code to scaffold (generate the starting structure of) the integration — it reads the existing codebase, generates the connection logic, writes tests, and verifies they pass. Move to Cursor to refine the output — Cmd+K on specific functions, adjust variable names, clean up edge cases while staying in the editor. Then switch to Saleo to make the demo environment match the prospect — overlay the right names, numbers, and use cases.",
     "**Example: preparing for a technical deep-dive.** Use Claude Code to generate a technical summary of your integration. Use Cursor to draft inline comments and documentation while reading the code. Load Saleo with the prospect's vertical data so the live demo is ready the moment the call starts.",
-    "Notice the pattern: **build, refine, present.** Claude Code handles the heavy construction. Cursor handles the precision work. Saleo handles the final mile.",
+    "This is the full pipeline for SEs who use all three, but even using two of these together (or just one well) gives you a real edge. The point is understanding the handoff points so you can plug in wherever your workflow needs it.",
+    "Notice the pattern: **build, refine, present.** Claude Code handles the heavy construction. Cursor handles the precision work. Saleo handles the last step.",
   ],
   pipeline: [
     { phase: 'Build', tool: 'Claude Code', logo: 'claude', description: 'Scaffold the integration, write tests, verify they pass. Autonomous multi-step execution.' },
@@ -115,11 +116,12 @@ export const section11 = {
   title: 'What Works, What Doesn\'t',
   subtitle: 'Patterns that hold across all three tools — and mistakes to avoid.',
   prose: [
-    "**The universal rule:** start with a clear goal and a clear success condition. \"Make it better\" is not a task. \"The dropdown doesn't filter correctly when no option is selected — fix it\" is. Specificity compounds — the more precisely you describe what you want, the less back-and-forth you need. This applies equally to Claude Code prompts, Cursor inline edits, and Saleo template descriptions.",
+    "**The universal rule:** start with a clear goal and a clear success condition. \"Make it better\" is not a task. \"The dropdown doesn't filter correctly when no option is selected — fix it\" is.",
+    "The more precisely you describe what you want, the less back-and-forth you need. This applies equally to Claude Code prompts, Cursor inline edits, and Saleo template descriptions.",
     "**Claude Code habits that pay off:** plan before building, keep sessions focused on one task, and keep CLAUDE.md concise. A 50-line file that Claude actually follows beats a 300-line one it has to guess at. Read the diff before approving — always.",
     "**Cursor habits that pay off:** use Tab liberally (it's free to ignore), use Cmd+K whenever you can see the code you want to change, and save Composer for changes that genuinely span multiple files. Don't use chat for tasks that Cmd+K can handle in seconds.",
     "**Saleo habits that pay off:** build templates as you go and organize by vertical, not by prospect. Don't recreate from scratch each time — duplicate and update. Use AI-assisted data generation for unfamiliar industries.",
-    "**What to avoid across the board:** approving AI output without reviewing it, using a heavy tool when a light one would do, and treating AI-generated work as finished. It's a fast first draft, not a final product. Your judgment is the last mile.",
+    "**What to avoid across the board:** approving AI output without reviewing it, using a heavy tool when a light one would do, and treating AI-generated work as finished. It's a fast first draft, not a final product. You still need to review, test, and sign off on everything these tools produce.",
   ],
   takeaway: "**Clear input, specific success criteria, review before approving.** The rest is tool-specific mechanics you'll pick up fast.",
 }
@@ -132,8 +134,8 @@ export const section12 = {
   toolMatrix: [
     { scenario: 'Build a script or automation from scratch', tool: 'Claude Code' },
     { scenario: 'Edit code while staying in your editor', tool: 'Cursor (Cmd+K)' },
-    { scenario: 'Refactor across many files autonomously', tool: 'Claude Code' },
-    { scenario: 'Multi-file change with visual diffs', tool: 'Cursor Composer' },
+    { scenario: 'Restructure a project across many files autonomously', tool: 'Claude Code' },
+    { scenario: 'Multi-file change with a side-by-side view of what changed', tool: 'Cursor Composer' },
     { scenario: 'Understand an unfamiliar codebase', tool: 'Claude Code' },
     { scenario: 'Quick inline suggestion as you type', tool: 'Cursor (Tab)' },
     { scenario: 'Prep prospect-specific demo data', tool: 'Saleo' },

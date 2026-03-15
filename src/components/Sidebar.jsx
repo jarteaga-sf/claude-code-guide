@@ -18,12 +18,12 @@ const tiers = [
       { id: 'claude-code-setup', title: 'Getting Started' },
       { id: 'claude-code-workflows', title: 'Claude Code Workflows' },
       { id: 'cursor-overview', title: 'Cursor' },
+      { id: 'cursor-workflows', title: 'Cursor Workflows' },
     ],
   },
   {
     label: 'Demo & Present',
     sections: [
-      { id: 'cursor-workflows', title: 'Cursor Workflows' },
       { id: 'saleo-overview', title: 'Saleo' },
       { id: 'saleo-workflows', title: 'Building Better Demos' },
     ],
