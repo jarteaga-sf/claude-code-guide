@@ -16,12 +16,23 @@ function TerminalVisual() {
         <div className="w-[7px] h-[7px] rounded-full bg-yellow-400/70" />
         <div className="w-[7px] h-[7px] rounded-full bg-green-400/70" />
       </div>
-      <div className="bg-[#1E1E1E] px-3 pb-3 pt-1">
-        <p className="text-[11px] font-mono text-[#9CA3AF]">
-          <span className="text-[#6EE7B7]">~</span> $ claude
+      <div className="bg-[#1E1E1E] px-3 pb-3 pt-1 flex flex-col gap-1.5">
+        <p className="text-[10px] font-mono text-[#E5E7EB]">
+          <span className="text-[#6EE7B7]">&gt;</span> Build a lead scoring flow
         </p>
-        <p className="text-[11px] font-mono text-[#E5E7EB] mt-1 leading-relaxed">
-          &gt; Build a lead scoring flow<span className="inline-block w-[6px] h-[13px] bg-[#6EE7B7]/70 ml-0.5 align-middle animate-pulse" />
+        <div className="border-l-2 border-[#D97706]/60 pl-2 flex flex-col gap-0.5">
+          <p className="text-[10px] font-mono text-[#D97706]">
+            Created LeadScoringFlow.flow
+          </p>
+          <p className="text-[10px] font-mono text-[#D97706]">
+            Added 4 scoring criteria
+          </p>
+          <p className="text-[10px] font-mono text-[#D97706]">
+            Deployed to org
+          </p>
+        </div>
+        <p className="text-[10px] font-mono text-[#E5E7EB]">
+          <span className="text-[#6EE7B7]">&gt;</span> Now add email alerts<span className="inline-block w-[5px] h-[12px] bg-[#6EE7B7]/70 ml-0.5 align-middle animate-pulse" />
         </p>
       </div>
     </div>
@@ -36,28 +47,37 @@ function EditorVisual() {
         <div className="px-2.5 py-1 rounded-t text-[10px] font-mono text-[#E5E7EB] bg-[#1E1E1E]">
           scoreCard.js
         </div>
-        <div className="px-2.5 py-1 text-[10px] font-mono text-[#6B7280]">
-          utils.js
+        <div className="flex-1" />
+        <div className="px-1.5 py-0.5 text-[8px] font-mono text-[#9CA3AF] bg-[#1E1E1E] rounded">
+          Agent
         </div>
       </div>
-      {/* Code area */}
-      <div className="bg-[#1E1E1E] px-3 py-2.5 flex flex-col gap-0.5">
-        <p className="text-[10px] font-mono">
-          <span className="text-[#C586C0]">const</span>{' '}
-          <span className="text-[#9CDCFE]">score</span>{' '}
-          <span className="text-[#D4D4D4]">=</span>{' '}
-          <span className="text-[#DCDCAA]">calcScore</span>
-          <span className="text-[#D4D4D4]">(lead);</span>
-        </p>
-        {/* AI suggestion line */}
-        <div className="rounded bg-[#264F78]/40 px-1 py-0.5 -mx-1">
-          <p className="text-[10px] font-mono text-[#6B9955] italic">
-            if (score &gt; 80) notify(rep);
+      {/* Split: code + chat */}
+      <div className="flex">
+        {/* Code pane */}
+        <div className="bg-[#1E1E1E] px-2.5 py-2 flex-1 border-r border-[#333]">
+          <p className="text-[9px] font-mono">
+            <span className="text-[#C586C0]">const</span>{' '}
+            <span className="text-[#9CDCFE]">score</span>{' '}
+            <span className="text-[#D4D4D4]">=</span>{' '}
+            <span className="text-[#DCDCAA]">calcScore</span>
+            <span className="text-[#D4D4D4]">(lead);</span>
+          </p>
+          <div className="rounded bg-[#264F78]/40 px-1 py-0.5 -mx-1 mt-0.5">
+            <p className="text-[9px] font-mono text-[#6B9955] italic">
+              if (score &gt; 80) notify(rep);
+            </p>
+          </div>
+        </div>
+        {/* Chat pane */}
+        <div className="bg-[#181818] px-2 py-2 w-[45%] flex flex-col gap-1.5">
+          <p className="text-[8px] font-mono text-[#9CA3AF]">
+            Add a threshold check
+          </p>
+          <p className="text-[8px] font-mono text-[#7C9FE0] leading-snug">
+            Added if (score &gt; 80) block with rep notification.
           </p>
         </div>
-        <p className="text-[10px] font-mono text-[#6B7280]">
-          {'}'};
-        </p>
       </div>
     </div>
   )
