@@ -4,50 +4,62 @@ import { useActiveSection } from '@/hooks/useIntersectionObserver'
 
 const tiers = [
   {
-    label: 'Start Here',
+    label: 'The Big Picture',
     sections: [
-      { id: 'why-ai-tools', title: 'Why This Matters' },
-      { id: 'tools-at-a-glance', title: 'The 3 Tools' },
-      { id: 'when-to-use-which', title: 'When to Use Which' },
+      { id: 'vibe-coding', title: 'The Shift' },
+      { id: 'why-ses-care', title: 'The Tools' },
+      { id: 'tools-at-a-glance', title: 'Get Set Up' },
     ],
   },
   {
-    label: 'Build & Code',
+    label: 'The Tools',
     sections: [
-      { id: 'claude-code-overview', title: 'Claude Code' },
-      { id: 'claude-code-setup', title: 'Getting Started' },
-      { id: 'claude-code-workflows', title: 'Claude Code Workflows' },
-      { id: 'cursor-overview', title: 'Cursor' },
-      { id: 'cursor-workflows', title: 'Cursor Workflows' },
+      { id: 'claude-code', title: 'Claude Code' },
+      { id: 'cursor', title: 'Cursor' },
+      { id: 'saleo', title: 'Saleo' },
     ],
   },
   {
-    label: 'Demo & Present',
+    label: 'See It in Action',
     sections: [
-      { id: 'saleo-overview', title: 'Saleo' },
-      { id: 'saleo-workflows', title: 'Building Better Demos' },
+      { id: 'live-demo', title: 'Live Demo' },
+      { id: 'full-pipeline', title: 'The Full Pipeline' },
     ],
   },
   {
-    label: 'Go Deeper',
+    label: 'Keep Going',
     sections: [
-      { id: 'combining-tools', title: 'Using Them Together' },
-      { id: 'best-practices', title: 'What Works, What Doesn\'t' },
       { id: 'quick-reference', title: 'Cheat Sheet' },
     ],
   },
 ]
 
+const bigPictureIds = new Set(tiers[0].sections.map((s) => s.id))
+const scrollSectionIds = tiers.slice(1).flatMap((t) => t.sections.map((s) => s.id))
 const allSectionIds = tiers.flatMap((t) => t.sections.map((s) => s.id))
 
 export { tiers, allSectionIds }
 
-export default function Sidebar({ collapsed = false, onToggle }) {
+export default function Sidebar({ collapsed = false, onToggle, presentationSlide }) {
   const [open, setOpen] = useState(false)
   const [scrollFaded, setScrollFaded] = useState(false)
   const [hovered, setHovered] = useState(false)
-  const activeId = useActiveSection(allSectionIds)
+  const scrollActiveId = useActiveSection(scrollSectionIds)
   const scrollTimer = useRef(null)
+
+  const deckActive = presentationSlide?.deckActive ?? false
+  const deckSectionId = presentationSlide?.sectionId ?? null
+  const goToSection = presentationSlide?.goToSection
+
+  // Determine active ID
+  let activeId = ''
+  if (deckActive) {
+    // Deck is visible -- highlight based on current slide's section (null for hero = no highlight)
+    activeId = deckSectionId || ''
+  } else {
+    // Scrolling through content below the deck
+    activeId = scrollActiveId
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,6 +76,14 @@ export default function Sidebar({ collapsed = false, onToggle }) {
   }, [])
 
   const handleClick = (id) => {
+    // Big Picture sections: navigate within the presentation deck
+    if (bigPictureIds.has(id) && goToSection) {
+      goToSection(id)
+      setOpen(false)
+      return
+    }
+
+    // Other sections: normal scroll
     const el = document.getElementById(id)
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' })
